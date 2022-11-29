@@ -1,37 +1,31 @@
 package Grupo3.FINGESO.entities;
-
-import Grupo3.FINGESO.services.UserService;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_entity")
-@DiscriminatorValue("UserEntity")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
-    @SequenceGenerator(name = "user_entity_seq")
     @Column(name = "id", nullable = false)
     private Long id;
     private String name;
     private String mail;
-    private String RUT;
+    private String rut;
     private String departamento;
     private String facultad;
     private String pass;
 
-    public UserEntity(Long id, String name, String mail, String RUT, String departamento, String facultad, String pass) {
+    public UserEntity(Long id, String name, String mail, String rut, String departamento, String facultad, String pass) {
         this.id = id;
         this.name = name;
         this.mail = mail;
-        this.RUT = RUT;
+        this.rut = rut;
         this.departamento = departamento;
         this.facultad = facultad;
         this.pass = pass;
     }
 
-    public UserEntity(){
-
+    public UserEntity() {
     }
 
     public Long getId() {
@@ -58,12 +52,12 @@ public class UserEntity {
         this.mail = mail;
     }
 
-    public String getRUT() {
-        return RUT;
+    public String getRut() {
+        return rut;
     }
 
-    public void setRUT(String RUT) {
-        this.RUT = RUT;
+    public void setRut(String rut) {
+        this.rut = rut;
     }
 
     public String getDepartamento() {
