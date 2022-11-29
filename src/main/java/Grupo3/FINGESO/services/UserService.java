@@ -1,6 +1,6 @@
 package Grupo3.FINGESO.services;
 
-import Grupo3.FINGESO.entities.UserEntity;
+import Grupo3.FINGESO.Model.UserEntity;
 import Grupo3.FINGESO.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

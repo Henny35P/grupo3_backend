@@ -1,7 +1,7 @@
-package Grupo3.FINGESO.rest;
+package Grupo3.FINGESO.Controller;
 
 
-import Grupo3.FINGESO.entities.UserEntity;
+import Grupo3.FINGESO.Model.UserEntity;
 import Grupo3.FINGESO.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

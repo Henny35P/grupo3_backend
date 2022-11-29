@@ -1,4 +1,4 @@
-package Grupo3.FINGESO.entities;
+package Grupo3.FINGESO.Model;
 
 import javax.persistence.*;
 
@@ -9,15 +9,13 @@ public class CompromisoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "compromiso_entity_seq")
     @SequenceGenerator(name = "compromiso_entity_seq")
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "id_compromiso", nullable = false)
+    private Long id_compromiso;
+    String descripcion;
+    TipoCompromiso tipo;
+//    Agregar comentarios y Evidencia posteriormente
+//
+//
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 }

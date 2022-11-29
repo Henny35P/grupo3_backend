@@ -1,4 +1,4 @@
-package Grupo3.FINGESO.entities;
+package Grupo3.FINGESO.Model;
 
 import javax.persistence.*;
 
