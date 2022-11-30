@@ -7,9 +7,9 @@ import java.util.Vector;
 @Table(name="academico_entity")
 public class AcademicoEntity extends User {
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_compromiso")
-    private Vector<CompromisoEntity> compromiso;
-
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name="id_compromiso")
+//    private Vector<CompromisoEntity> compromiso;
+//
 
 }
