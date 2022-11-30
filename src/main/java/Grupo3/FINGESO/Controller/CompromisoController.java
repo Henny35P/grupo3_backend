@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 public class CompromisoController {
 
+
     @Autowired
     private final CompromisoRepository compromisoRepository;
 
@@ -18,10 +19,13 @@ public class CompromisoController {
         this.compromisoRepository = compromisoRepository;}
 
     @GetMapping("/compromisos")
+    @CrossOrigin("*")
     List<CompromisoEntity> all(){
         return compromisoRepository.findAll();
     }
+
     @PostMapping("/compromisos")
+    @CrossOrigin("*")
     CompromisoEntity newCompromiso(@RequestBody CompromisoEntity newCompromiso){
         return compromisoRepository.save(newCompromiso);
     }
