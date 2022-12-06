@@ -2,7 +2,7 @@ package Grupo3.FINGESO.Controller;
 
 
 import Grupo3.FINGESO.Model.UserEntity;
-import Grupo3.FINGESO.services.UserService;
+import Grupo3.FINGESO.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

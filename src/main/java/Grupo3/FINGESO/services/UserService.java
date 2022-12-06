@@ -1,4 +1,4 @@
-package Grupo3.FINGESO.services;
+package Grupo3.FINGESO.Services;
 
 import Grupo3.FINGESO.Model.UserEntity;
 import Grupo3.FINGESO.repository.UserRepository;
@@ -71,7 +71,7 @@ public class UserService implements UserRepository {
 
     @Override
     public <S extends UserEntity> S save(S entity) {
-        return null;
+        return userRepository.save(entity);
     }
 
     @Override

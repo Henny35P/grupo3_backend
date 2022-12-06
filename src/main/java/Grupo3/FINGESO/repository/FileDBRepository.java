@@ -1,4 +1,4 @@
-package Grupo3.FINGESO.repository;
+package Grupo3.FINGESO.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

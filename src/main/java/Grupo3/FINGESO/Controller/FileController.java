@@ -16,8 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import Grupo3.FINGESO.Model.FileDB;
-import Grupo3.FINGESO.services.FileStorageService;
-import Grupo3.FINGESO.repository.FileDBRepository;
+import Grupo3.FINGESO.Services.FileStorageService;
+import Grupo3.FINGESO.Repository.FileDBRepository;
 import Grupo3.FINGESO.Message.ResponseMessage;
 import Grupo3.FINGESO.Message.ResponseFile;
 
@@ -34,10 +34,10 @@ public class FileController {
         try {
             storageService.store(file);
 
-            message = "Uploaded the file successfully: " + file.getOriginalFilename();
+            message = "El archivo fue subido con exito: " + file.getOriginalFilename();
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         } catch (Exception e) {
-            message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+            message = "No se pudo subir el archivo: " + file.getOriginalFilename() + "!";
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
     }

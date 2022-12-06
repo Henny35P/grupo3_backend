@@ -1,15 +1,16 @@
-package Grupo3.FINGESO.services;
+package Grupo3.FINGESO.Services;
 
 import java.io.IOException;
 import java.util.stream.Stream;
 
+import Grupo3.FINGESO.Repository.FileDBRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import Grupo3.FINGESO.Model.FileDB;
-import Grupo3.FINGESO.repository.FileDBRepository;
+import Grupo3.FINGESO.Repository.FileDBRepository;
 
 @Service
 public class FileStorageService {
