@@ -25,10 +25,10 @@ public class AcademicoController {
         long id = -1;
         for (AcademicoEntity academicoEntity : academicoEntities) {
             if (Objects.equals(idUser, academicoEntity.getUser().getId())) {
-                id = academicoEntity.getId();
+                return ResponseEntity.ok(academicoService.getById(academicoEntity.getId()));
             }
         }
-        return ResponseEntity.ok(academicoService.getById(id));
+        return ResponseEntity.ok(null);
     }
 
 }
