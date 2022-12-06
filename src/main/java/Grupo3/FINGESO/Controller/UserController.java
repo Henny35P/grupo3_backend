@@ -5,12 +5,12 @@ import Grupo3.FINGESO.Model.UserEntity;
 import Grupo3.FINGESO.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/User")
@@ -23,7 +23,34 @@ public class UserController {
     private ResponseEntity<List<UserEntity>> getUsers(){
         return ResponseEntity.ok(userService.findAll());
     }
+    @PostMapping
+    @CrossOrigin("*")
+    private ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user){
+        try{
+            UserEntity user1 = userService.save(user);
+            return ResponseEntity.created(new URI("/User"+user1.getId())).body(user1);
+        }catch (URISyntaxException e){
+            throw new RuntimeException(e);
+        }
+    }
 
-
+    @PostMapping(value = "/login")
+    @CrossOrigin("*")
+    private Long matchUser(@RequestBody UserEntity user) {
+        List<UserEntity> userEntities = userService.findAll();
+        long value;
+        for (UserEntity userEntity : userEntities) {
+            if (Objects.equals(user.getMail(), userEntity.getMail())) {
+                if (Objects.equals(user.getPass(), userEntity.getPass()))
+                    return userEntity.getId();
+                else {
+                    value = -1;
+                    return value;
+                }
+            }
+        }
+        value = 0;
+        return value;
+    }
 
 }
