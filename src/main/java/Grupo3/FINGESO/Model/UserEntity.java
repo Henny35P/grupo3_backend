@@ -13,13 +13,22 @@ public class UserEntity {
     private String pass;
     private Rol rol;
 
-    public UserEntity(Long id, String name, String mail, String rut, String departamento, String pass) {
+    public UserEntity(Long id, String name, String mail, String rut, String departamento, String pass, Rol rol) {
         this.id = id;
         this.mail = mail;
         this.pass = pass;
+        this.rol = rol;
     }
 
     public UserEntity() {
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public Long getId() {

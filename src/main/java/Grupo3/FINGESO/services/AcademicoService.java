@@ -1,13 +1,14 @@
-package Grupo3.FINGESO.Services;
+package Grupo3.FINGESO.services;
 
 import Grupo3.FINGESO.Model.AcademicoEntity;
-import Grupo3.FINGESO.Repository.AcademicoRepository;
+import Grupo3.FINGESO.repository.AcademicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -167,5 +168,10 @@ public class AcademicoService implements AcademicoRepository {
     @Override
     public <S extends AcademicoEntity, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
         return null;
+    }
+
+    @Override
+    public AcademicoEntity getAcademicoEntityByUser_Id(Long id) {
+        return academicoRepository.getAcademicoEntityByUser_Id(id);
     }
 }

@@ -1,6 +1,7 @@
 package Grupo3.FINGESO.Controller;
 
 
+import Grupo3.FINGESO.Model.Rol;
 import Grupo3.FINGESO.Model.UserEntity;
 import Grupo3.FINGESO.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,14 @@ public class UserController {
     private ResponseEntity<List<UserEntity>> getUsers(){
         return ResponseEntity.ok(userService.findAll());
     }
+
+    @GetMapping(value = "/{id}")
+    @CrossOrigin("*")
+    private ResponseEntity<Rol> getRolByID(@PathVariable Long id){
+        UserEntity user = userService.getById(id);
+        return ResponseEntity.ok(user.getRol());
+    }
+
     @PostMapping
     @CrossOrigin("*")
     private ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user){
@@ -52,5 +61,4 @@ public class UserController {
         value = 0;
         return value;
     }
-
 }

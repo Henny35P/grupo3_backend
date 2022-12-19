@@ -125,8 +125,8 @@ public class UserService implements UserRepository {
     }
 
     @Override
-    public UserEntity getById(Long aLong) {
-        return null;
+    public UserEntity getById(Long id) {
+        return userRepository.getById(id);
     }
 
     @Override

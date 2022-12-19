@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
+@RequestMapping("/compromisos")
 public class CompromisoController {
 
 
@@ -18,17 +19,15 @@ public class CompromisoController {
     CompromisoController(CompromisoRepository compromisoRepository) {
         this.compromisoRepository = compromisoRepository;}
 
-    @GetMapping("/compromisos")
+    @GetMapping()
     @CrossOrigin("*")
     List<CompromisoEntity> all(){
         return compromisoRepository.findAll();
     }
 
-    @PostMapping("/compromisos")
+    @PostMapping()
     @CrossOrigin("*")
     CompromisoEntity newCompromiso(@RequestBody CompromisoEntity newCompromiso){
         return compromisoRepository.save(newCompromiso);
     }
-
-
 }
