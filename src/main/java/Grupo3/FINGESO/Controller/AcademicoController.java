@@ -1,9 +1,7 @@
 package Grupo3.FINGESO.Controller;
 
 import Grupo3.FINGESO.Model.AcademicoEntity;
-import Grupo3.FINGESO.Model.Academico_User_Entity;
 import Grupo3.FINGESO.services.AcademicoService;
-import Grupo3.FINGESO.Services.AcademicoUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +27,4 @@ public class AcademicoController {
     private ResponseEntity<List<AcademicoEntity>> getAll(){
         return ResponseEntity.ok(academicoService.findAll());
     }
-
 }

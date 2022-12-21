@@ -1,13 +1,14 @@
 package Grupo3.FINGESO.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="academico_entity")
 public class AcademicoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "academico_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     private String name;
@@ -18,6 +19,9 @@ public class AcademicoEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+    @ManyToMany(mappedBy = "integrantes")
+    private Set<ComiteEntity> comite;
 
     public AcademicoEntity(Long id, String name, String rut, String departamento, String facultad, TipoGrado tipoGrado, UserEntity user) {
         this.id = id;

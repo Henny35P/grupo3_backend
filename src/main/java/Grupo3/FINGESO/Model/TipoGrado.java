@@ -5,5 +5,6 @@ public enum TipoGrado {
     ASISTENTE,
     ASOCIADO,
     INSTRUCTOR,
-    AYUDANTE
+    AYUDANTE,
+    DECANO
 }

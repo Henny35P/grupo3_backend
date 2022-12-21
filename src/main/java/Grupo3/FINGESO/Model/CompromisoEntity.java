@@ -7,12 +7,15 @@ import javax.persistence.*;
 @DiscriminatorValue("CompromisoEntity")
 public class CompromisoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "compromiso_entity_seq")
-    @SequenceGenerator(name = "compromiso_entity_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     private String descripcion;
     private TipoCompromiso tipo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_academico")
+    private AcademicoEntity academico;
 
 //    Agregar comentarios y Evidencia posteriormente
 //
@@ -24,12 +27,12 @@ public class CompromisoEntity {
 
     }
 
-    public Long getId_compromiso() {
+    public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
-        this.id= id;
+        this.id = id;
     }
 
     public String getDescripcion() {
@@ -46,5 +49,13 @@ public class CompromisoEntity {
 
     public void setTipo(TipoCompromiso tipo) {
         this.tipo = tipo;
+    }
+
+    public AcademicoEntity getAcademico() {
+        return academico;
+    }
+
+    public void setAcademico(AcademicoEntity academico) {
+        this.academico = academico;
     }
 }
