@@ -47,8 +47,8 @@ public class ComiteService implements ComiteRepository {
     }
 
     @Override
-    public void deleteById(Long aLong) {
-
+    public void deleteById(Long id) {
+        comiteRepository.deleteById(id);
     }
 
     @Override
@@ -179,5 +179,10 @@ public class ComiteService implements ComiteRepository {
     @Override
     public List<ComiteEntity> getComiteEntitiesByIntegrantesIsContaining(AcademicoEntity integrante) {
         return comiteRepository.getComiteEntitiesByIntegrantesIsContaining(integrante);
+    }
+
+    @Override
+    public Boolean deleteComiteEntityByEvaluado_Id(Long id) {
+        return comiteRepository.deleteComiteEntityByEvaluado_Id(id);
     }
 }

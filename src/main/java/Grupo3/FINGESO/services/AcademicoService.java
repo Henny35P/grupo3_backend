@@ -72,7 +72,7 @@ public class AcademicoService implements AcademicoRepository {
 
     @Override
     public <S extends AcademicoEntity> S save(S entity) {
-        return null;
+        return academicoRepository.save(entity);
     }
 
     @Override

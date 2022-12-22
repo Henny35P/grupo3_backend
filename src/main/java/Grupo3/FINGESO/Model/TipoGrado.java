@@ -1,10 +1,10 @@
 package Grupo3.FINGESO.Model;
 
 public enum TipoGrado {
-    TITULAR,
+    AYUDANTE,
+    INSTRUCTOR,
     ASISTENTE,
     ASOCIADO,
-    INSTRUCTOR,
-    AYUDANTE,
+    TITULAR,
     DECANO
 }

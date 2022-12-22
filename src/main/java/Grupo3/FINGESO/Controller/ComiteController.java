@@ -23,6 +23,20 @@ public class ComiteController {
         return ResponseEntity.ok(comiteService.findAll());
     }
 
+    @DeleteMapping("/{id_evaluado}")
+    @CrossOrigin("*")
+    private ResponseEntity<Boolean> deleteByEvaluado(@PathVariable Long id_evaluado){
+        try{
+            List<ComiteEntity> comiteEntities = comiteService.getComiteEntitiesByEvaluado_Id(id_evaluado);
+            comiteService.deleteById(comiteEntities.get(0).getId());
+            return ResponseEntity.ok(true);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
     @GetMapping("/Evaluadores/{id_evaluado}")
     @CrossOrigin("*")
     private ResponseEntity<Set<AcademicoEntity>> getEvaluadores(@PathVariable Long id_evaluado){

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,6 +22,17 @@ public class AcademicoController {
     @CrossOrigin("*")
     private ResponseEntity<AcademicoEntity> getAcademico(@PathVariable Long idUser){
         return ResponseEntity.ok(academicoService.getAcademicoEntityByUser_Id(idUser));
+    }
+
+    @PutMapping
+    @CrossOrigin("*")
+    private ResponseEntity<AcademicoEntity> updateAcademico(@RequestBody AcademicoEntity academico){
+        try {
+            AcademicoEntity academico1 = academicoService.save(academico);
+            return ResponseEntity.created(new URI("/Academico"+academico1.getId())).body(academico1);
+        }catch (URISyntaxException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping

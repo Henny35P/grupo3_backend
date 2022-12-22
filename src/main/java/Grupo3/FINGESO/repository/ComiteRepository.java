@@ -10,4 +10,6 @@ import java.util.Set;
 public interface ComiteRepository extends JpaRepository<ComiteEntity,Long> {
     List<ComiteEntity> getComiteEntitiesByEvaluado_Id(Long id);
     List<ComiteEntity> getComiteEntitiesByIntegrantesIsContaining(AcademicoEntity integrante);
+
+    Boolean deleteComiteEntityByEvaluado_Id(Long id);
 }
